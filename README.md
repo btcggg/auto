@@ -1,5 +1,4 @@
-# auto
-Share some web3 related automation scripts
+# Share some web3 related automation scripts
 
 ## 文件说明
 
