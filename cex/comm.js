@@ -31,6 +31,7 @@ function comm_input_value(elmObj,value) {
     elmObj.setSelectionRange(0,elmObj.value.length)
     document.execCommand('delete', null, false);
     document.execCommand('inserttext', false, value);
+    console.log("input value:" + value)
 
 }
 

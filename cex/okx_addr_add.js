@@ -31,6 +31,7 @@ let wallet_address = {
     "备注1": "地址1",
     "备注2": "地址2",
     "备注3": "地址3"
+
   };
 
 // okx 第次只能加20个地址
@@ -86,6 +87,7 @@ function comm_input_value(elmObj,value) {
     elmObj.setSelectionRange(0,elmObj.value.length)
     document.execCommand('delete', null, false);
     document.execCommand('inserttext', false, value);
+    console.log("input value:" + value)
 
 }
 
@@ -102,10 +104,13 @@ console.log("tmp_sleep_time:"+tmp_sleep_time);
 function input_values(){ 
 
   console.log("start input_values");
-  // chain_table_inputs = document.querySelectorAll("div.okui-form-item-control-input-content > div.withdraw-book-list");
-  chain_table_inputs = document.querySelector("div.okui-form-item-control div.okui-form-item-control-input-content > div.withdraw-book-list");
+
+  chain_table_inputs = document.querySelector("#scroll-box > .okui-dialog-container > div >form.okui-form >  div .withdraw-book-list")
 
   /*
+  
+<div class="withdraw-book-list">
+
   3 , 5
   8 , 10
   13 , 15
@@ -123,6 +128,10 @@ function input_values(){
 
 
   for(; index <= add_count; index++){
+
+// document.querySelector(" > div:nth-child(3) > div.okui-form-item-control > div > div > div > div > input")    
+
+
 
     address_input = chain_table_inputs.querySelector("div:nth-child("+address_index+") > div.okui-form-item-control  input.okui-input-input");
     remark_input = chain_table_inputs.querySelector("div:nth-child("+remark_index+") > div.okui-form-item-control  input.okui-input-input");

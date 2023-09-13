@@ -45,7 +45,9 @@ let chain_table_inputs = undefined;
 
 function DepositAddressBook_add() {
 
-  document.querySelector("#__layout .batch-adress-wrap .asset-address-box > div:nth-child(3) .chain-table > .table-footer .delete-btn").click();
+  // document.querySelector("#__layout .batch-adress-wrap .asset-address-box > div:nth-child(3) .chain-table > .table-footer .delete-btn").click();
+  document.querySelector("#__layout   div.main-box.lay-box.clearfix > div > div.asset-address-box.asset-common > div:nth-child(3) > div > div.chain-table div.left > button").click();
+
   add_count--;
   if (add_count === 0) {
     clearInterval(intervalId);
