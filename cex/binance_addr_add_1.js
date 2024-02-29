@@ -1,7 +1,10 @@
 /*
 binance 自动填地址
 
-1. 打开地址添加页面, 快捷入口如下:   
+1. 打开地址添加页面, 快捷入口如下:  
+https://www.binance.com/zh-CN/my/security/address-management/vip-batch-add
+
+ 
 https://www.binance.com/zh-CN/my/security/address-management/vip-batch-add
 
 2. 先选好 币种、 转账网络、地址来源
@@ -131,7 +134,7 @@ function DepositAddressBook_add_click(start_sleep_time) {
 
 
 function whitelist_switch() {
-  document.querySelector("#__APP > div.css-tq0shg > main > main > div > div > div > div > div > div.css-1k21oyj > div.css-v0npq9 > button > div").click()
+  document.querySelector("#__APP > div.theme-root.dark > div > main > main > div > div > div > div > div > div.css-1k21oyj > div.css-v0npq9 > button").click()
 }
 
 

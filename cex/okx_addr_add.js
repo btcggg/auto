@@ -24,7 +24,7 @@ https://csvjson.com/csv2json
  */
 
 // 20个钱包为1组,添加第几组, 比如添加好第2组,就改成2
-let curr_group  =  5;
+let curr_group  =  1;
 
 // let g_form_type  =  "normal";
 // 填写普通表单:normal 或包含memo内容的表单:memo
@@ -36,8 +36,7 @@ let wallet_address = {
     "备注1": "地址1",
     "备注2": "地址2",
     "备注3": "地址3"
-
-
+   
   };
 
 // okx 第次只能加20个地址
@@ -68,7 +67,9 @@ let chain_table_inputs = undefined;
 
 add_max = add_count;
 function DepositAddressBook_add() {
-document.querySelector("div.okui-form-item-control div.okui-form-item-control-input-content > div.withdraw-book-list div.add-address-form-btn").click();
+
+  // 继续添加地址
+  document.querySelector("#scroll-box > div > div > form > div:nth-child(6) > div > div > div > div > div.add-address-form-btn").click();
   add_max--;
   if (add_max === 0) {
     clearInterval(intervalId);
@@ -111,7 +112,17 @@ function input_values(){
 
   console.log("start input_values");
 
-  chain_table_inputs = document.querySelector("#scroll-box > .okui-dialog-container > div >form.okui-form >  div .withdraw-book-list")
+
+// document.querySelector("#scroll-box > div > div > form > div:nth-child(6) > div > div > div > div > div:nth-child(3) > div.balance_okui-form-item-control > div > div > div > div > input.balance_okui-input-input")
+
+// document.querySelector("#scroll-box > div > div > form > div:nth-child(6) > div > div > div > div > div:nth-child(8) > div.balance_okui-form-item-control > div > div > div > div > input.balance_okui-input-input")
+
+
+  chain_table_inputs = document.querySelector("#scroll-box > div > div > form > div:nth-child(6) > div > div > div > div");
+
+
+  // chain_table_inputs = document.querySelector("#scroll-box > .okui-dialog-container > div >form.okui-form >  div .withdraw-book-list")
+  // chain_table_inputs = document.querySelector("#scroll-box > .okui-dialog-container > div >form.okui-form >  div .withdraw-book-list")
 
   /*
   
@@ -148,11 +159,15 @@ function input_values(){
 
 
 
-    address_input = chain_table_inputs.querySelector("div:nth-child("+address_index+") > div.okui-form-item-control  input.okui-input-input");
+
+
+    address_input = chain_table_inputs.querySelector("div:nth-child("+address_index+") > div.balance_okui-form-item-control > div > div > div > div > input.balance_okui-input-input");
+    // address_input = chain_table_inputs.querySelector("div:nth-child("+address_index+") > div.okui-form-item-control  input.okui-input-input");
 
     // remark_input = chain_table_inputs.querySelector("div:nth-child("+remark_index+") > div.okui-form-item-control  input.okui-input-input");
 
-    remark_input = chain_table_inputs.querySelector("div:nth-child("+(remark_index)+") > div.okui-form-item-control > div > div > div > div > input.okui-input-input");
+    remark_input = chain_table_inputs.querySelector("div:nth-child("+(remark_index)+") > div.balance_okui-form-item-control > div > div > div > div > input.balance_okui-input-input");
+    // remark_input = chain_table_inputs.querySelector("div:nth-child("+(remark_index)+") > div.okui-form-item-control > div > div > div > div > input.okui-input-input");
 
     if ( !remark_input){
       remark_input = chain_table_inputs.querySelector("div:nth-child("+remark_index+") > div.okui-form-item-control  input.okui-input-input");

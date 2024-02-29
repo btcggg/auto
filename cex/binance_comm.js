@@ -20,7 +20,7 @@ function DepositAddressBook_add_click(start_sleep_time) {
 
 
 function whitelist_switch() {
-  document.querySelector("#__APP > div.css-tq0shg > main > main > div > div > div > div > div > div.css-1k21oyj > div.css-v0npq9 > button > div").click()
+  document.querySelector("#__APP > div.theme-root.dark > div > main > main > div > div > div > div > div > div.css-1k21oyj > div.css-v0npq9 > button").click()
 }
 
 
