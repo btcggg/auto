@@ -1,15 +1,16 @@
 
-let sleep_time =3000
-let add_count_max = 1000000
+let sleep_time =1000
+let add_count_max = 50
 
 let add_count = 0
 
 function click_it() {
 
-  document.querySelector("#root > div > div.chakra-stack.css-14e7mdt > div.chakra-stack.css-i4ghpt > div.css-79elbk > div.css-1y1tdff > div > div.css-i6bazn > div.css-1xq42jv > div > div > div.css-1aoc199 > button").click()
+  // https://www.bitget.com/zh-CN/asset/rechargeAddress?title=BTC-BTC&coinId=1&chainCoinId=0
+  document.querySelector("#__layout > div > div.main-box.lay-box.clearfix > div > div > div > div:nth-child(2) > div.flex.justify-between.items-center > div > button.bit-button.bit-button--main.bit-button--medium.is-round").click()
 
   add_count++;
-  if (add_count < add_count_max) {
+  if (add_count > add_count_max) {
     clearInterval(intervalId);
   }
   console.log(add_count);
