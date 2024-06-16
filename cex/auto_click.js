@@ -1,20 +1,25 @@
 /*
 交易所自动点击生成充值地址
+支持 okx 、bitget 、 bybit
 
+使用方法: 
 1. 进入 充值地址管理界面
 比如: 
 bitget: https://www.bitget.com/zh-CN/asset/rechargeAddress?title=BTC-BTC&coinId=1&chainCoinId=0
 okx: https://www.okx.com/zh-hans/balance/recharge-address/eth/2-2
 bybit: https://www.bybit.com/user/assets/deposit/chain-address?c=ZK&a=ZKV2
 
-2. 修改下面的 exchange_name 变量的值为对应交易所, 目前只支持 okx 或 bitget  
-3. 打开开发者⼯具, 复制该文件所有代码, 在chome 控制台里运行
+2. 打开开发者⼯具, 复制该文件所有代码, 在chome 控制台里运行
+
+3. 结束后会有弹窗提示
 */
-// 当前的交易所,  支持 okx 、bitget 、 bybit
-let exchange_name = "bybit"
 
 
-// 以下不用改
+hostname_split = location.hostname.split(".")
+
+// let exchange_name = "bybit"
+let exchange_name = hostname_split[hostname_split.length-2]
+
 let sleep_time =1500
 let add_count = 0
 
