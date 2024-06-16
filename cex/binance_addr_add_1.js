@@ -117,7 +117,7 @@ function DepositAddressBook_add_click(start_sleep_time) {
 
   setTimeout(function(){
 
-   document.querySelector("#__APP > div.css-tq0shg > main > main > div > div > div > div > div > div.css-1k5gphu > div > button").click();
+   document.querySelector("#__APP > div.theme-root.dark > div > main > main > div > div > div > div > div > div.css-1k5gphu > div > div:nth-child(1) > div.css-1y2olgo > div:nth-child(1)").click();
 
   }, start_sleep_time );
 

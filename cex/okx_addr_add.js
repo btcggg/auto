@@ -12,6 +12,7 @@ https://www.okx.com/cn/balance/withdrawal-address/eth/2
 
 内容可以通过以下网站转换
 https://csvjson.com/csv2json
+- 只选中 Transpose 、 Array 
 
 4. 打开开发者⼯具, 复制该文件所有代码, 在chome 控制台里运行
 

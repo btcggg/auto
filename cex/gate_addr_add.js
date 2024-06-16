@@ -28,10 +28,14 @@ let curr_group  =  1;
 
 
 // 以下备注、地址修改成自己要添加的钱包地址信息, "地址名称" : "地址"
+// 如包含标签, 地址用 : 分隔, 如 "地址名称" : "地址:标签" 
+
 let wallet_address = {
     "备注1": "地址1",
     "备注2": "地址2",
     "备注3": "地址3"
+
+
   };
 
 // 一次只能加几个地址
@@ -70,7 +74,7 @@ function DepositAddressBook_add() {
 
   }
   add_count--;  
-  document.querySelector("body > div.layout > div.myaccount-wrap.new-myaccount-wrap.account-wallet-page-container > div > div.main_content.acc-m-con > div > div > div > div.newAddressBox > div.add_footer > div.toAddNewAddress").click();
+  document.querySelector("body > div.layout > div > div.newAddressBox > div.add_footer > div.toAddNewAddress").click();
 
   console.log(add_count);
 
@@ -102,7 +106,9 @@ console.log("tmp_sleep_time:"+tmp_sleep_time);
 function input_values(){ 
 
   console.log("start input_values");
-  chain_table_inputs = document.querySelectorAll("body > div.layout > div.myaccount-wrap.new-myaccount-wrap.account-wallet-page-container > div > div.main_content.acc-m-con > div > div > div > div.newAddressBox > div.address_content.sel_coin_content > div.address_list_wrap > div.address_list_box.batch_list.batch_list_add > div");
+  // chain_table_inputs = document.querySelectorAll("body > div.layout > div.myaccount-wrap.new-myaccount-wrap.account-wallet-page-container > div > div.main_content.acc-m-con > div > div > div > div.newAddressBox > div.address_content.sel_coin_content > div.address_list_wrap > div.address_list_box.batch_list.batch_list_add > div");
+  chain_table_inputs = document.querySelectorAll("body > div.layout > div > div.newAddressBox > div.address_content.sel_coin_content > div.address_list_wrap > div.address_list_box.batch_list.batch_list_add > div");
+
 
   let default_address_list_name = ""
   let default_address_list_index = 0
@@ -111,10 +117,14 @@ function input_values(){
 
     address_list_input = chain_table_inputs[index].querySelector(".batch_address_list >  .batch_address_list_content > .address_list_name > input");
 
+
     if(0 == index){
       default_address_list_name = address_list_input.value
 
-      search_dom_list = document.querySelectorAll("body > div.layout > div.myaccount-wrap.new-myaccount-wrap.account-wallet-page-container > div > div.main_content.acc-m-con > div > div > div > div.newAddressBox > div.address_content.sel_coin_content > div.sel-coin-list > div.sel-coin-scroll > ul > li");
+
+
+
+      search_dom_list = document.querySelector("body > div.layout > div > div.newAddressBox > div.address_content.sel_coin_content > div.sel-coin-list > div.sel-coin-scroll > ul > li");
       for(var search_dom_index=0; search_dom_index< search_dom_list.length; search_dom_index++){
         if(default_address_list_name == search_dom_list[search_dom_index].textContent.trim()){
           default_address_list_index = search_dom_index;
@@ -127,17 +137,34 @@ function input_values(){
 
     }
     else{
-      search_coin_input = document.querySelector("body > div.layout > div.myaccount-wrap.new-myaccount-wrap.account-wallet-page-container > div > div.main_content.acc-m-con > div > div > div > div.newAddressBox > div.address_content.sel_coin_content > div.sel-coin-list > div.search-coin-icon-box > input");
+      search_coin_input = document.querySelector("body > div.layout > div > div.newAddressBox > div.address_content.sel_coin_content > div.sel-coin-list > div.search-coin-icon-box > input");
 
       address_list_input.click()
       comm_input_value(search_coin_input, default_address_list_name);
-      document.querySelector("body > div.layout > div.myaccount-wrap.new-myaccount-wrap.account-wallet-page-container > div > div.main_content.acc-m-con > div > div > div > div.newAddressBox > div.address_content.sel_coin_content > div.sel-coin-list > div.sel-coin-scroll > ul > li:nth-child("+(default_address_list_index+1)+")").click();
+
+      
+      document.querySelector("body > div.layout > div > div.newAddressBox > div.address_content.sel_coin_content > div.sel-coin-list > div.sel-coin-scroll > ul >  li:nth-child("+(default_address_list_index+1)+")").click();
     }
 
 
     address_input = chain_table_inputs[index].querySelector(".batch_address_list >  .batch_address_list_content > .address_list_value > input");
 
-    comm_input_value(address_input, wallet_address[wallet_address_keys[index+group_start_index]])
+    wallet_address_split = wallet_address[wallet_address_keys[index+group_start_index]].split(":")
+    curr_wallet_address = wallet_address_split[0]
+    curr_wallet_tag = false
+    if(wallet_address_split.length > 1){
+      curr_wallet_tag = wallet_address_split[1]
+    }
+
+    comm_input_value(address_input, curr_wallet_address)
+
+    if(curr_wallet_tag){
+      address_tag_input = chain_table_inputs[index].querySelector(".batch_address_list >  .batch_address_list_content > .address_list_tag > input");
+
+      comm_input_value(address_tag_input, curr_wallet_tag)
+
+    }
+
 
 
     remark_input = chain_table_inputs[index].querySelector(".batch_address_list >  .batch_address_list_content > .address_list_receiver > input");
