@@ -24,4 +24,5 @@
 - 交易所提币、划转、借币、借贷风险预警、交易
 
 
-> 关注 wx/tw: @gggxin ,得到最新消息
+> 关注 wx/tw: [@gggxin](https://twitter.com/gggxin) ,得到最新消息
+> 
