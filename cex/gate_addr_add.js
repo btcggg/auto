@@ -177,7 +177,7 @@ function input_values(){
     console.log(wallet_address_keys[index+group_start_index]);
 
   }
-  alert("大佬, 都准备好了,请确认后点保存下筷. ");
+  alert("大佬, 都准备好了,请确认后点保存下筷. \n by @gggxin");
 
 }
 

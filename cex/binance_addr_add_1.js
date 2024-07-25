@@ -573,7 +573,7 @@ function select_values(default_coin){
 
 setTimeout(
   function(){
-      alert("大佬, 如果出现红框不能提交,请按点击选中第一个地址备注,然后长按tab键,就可快速消除红框. ");
+      alert("大佬, 如果出现红框不能提交,请按点击选中第一个地址备注,然后长按tab键,就可快速消除红框. \n by @gggxin");
   }
   , start_sleep_time + g_interval_time
 );

@@ -10,7 +10,6 @@
 其中空投币数量可以不用填
 
 3. 运行
-
 会输出 中奖的钱包地址,所在分组,空投代币数量信息
 内容保存成csv文件,然后在excel做分组统计
 
@@ -78,5 +77,5 @@ for curr_line in my_address_lines:
 
 
 
-print('\n----\nend')
+print('\n----\nend\n by @gggxin')
 quit()
