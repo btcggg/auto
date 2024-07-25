@@ -44,7 +44,12 @@ let add_config = {
     ,"sleep_time": 5000
 
   }
+  ,"bitlightdev" : {
+    "click_selector":"#explorer > div > div > div:nth-child(3) > div.container > div.load-more-container > div > div > span"
+    ,"add_max": 30
+    ,"sleep_time": 2000
 
+  }
 }
 
 let curr_config = add_config[exchange_name]
