@@ -31,7 +31,7 @@ let add_config = {
   ,"bitget" : {
     "click_selector":"#__layout > div > div.main-box.lay-box.clearfix > div > div > div > div:nth-child(2) > div.flex.justify-between.items-center > div > button.bit-button.bit-button--main.bit-button--medium.is-round"
     ,"add_max": 50
-    ,"sleep_time": 2000
+    ,"sleep_time": 2500
   }
   ,"bybit" : {
     "click_selector":"#root > div > div._coin_chain_address_1r3hz_1 > div._coin_chain_address_main_1r3hz_4 > div._coin_chain_address_top_1r3hz_10 > button"
@@ -39,13 +39,19 @@ let add_config = {
     ,"sleep_time": 2000
 }
   ,"gate" : {
-    "click_selector":"body > div.layout > div.select_deposit_address_shade > div > div.select_deposit_address_box_btn > div.select_deposit_address_box_btn_submit"
+    "click_selector":"body > div.layout >一 div.select_deposit_address_shade > div > div.select_deposit_address_box_btn > div.select_deposit_address_box_btn_submit"
     ,"add_max": 20
     ,"sleep_time": 5000
 
   }
   ,"bitlightdev" : {
     "click_selector":"#explorer > div > div > div:nth-child(3) > div.container > div.load-more-container > div > div > span"
+    ,"add_max": 30
+    ,"sleep_time": 2000
+
+  }
+  ,"binance" : {
+    "click_selector":"#btn-TitleBar-handleAddNewAddress"
     ,"add_max": 30
     ,"sleep_time": 2000
 
@@ -59,7 +65,11 @@ let sleep_time = curr_config['sleep_time']
 console.log(curr_config)
 function click_it() {
 
-  document.querySelector(curr_config['click_selector']).click()
+  document.querySelector(curr_config['click_selector']).click();
+
+  if('binance' == exchange_name){
+    document.querySelector("#btn-AddNewAddress-onCreateAddress").click();
+  }
 
   add_count++;
   if (add_count > add_count_max) {

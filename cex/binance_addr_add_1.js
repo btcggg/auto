@@ -22,6 +22,9 @@ https://csvjson.com/csv2json
  */
 
 
+// 运行方式 1: 自动填币种、转账网络  2: 手式先复制好币种、转账网络、
+let operation_mode = 2;
+
 // 50个钱包为1组,添加第几组, 比如添加好第2组,就成2
 let curr_group  =  1;
 
@@ -29,18 +32,14 @@ let curr_group  =  1;
 let default_coin = "通用地址";
 
 // BTC,BSC,ETH,ARBITRUM,BASE,MANTA,OPTIMISM,ZKSYNCERA
-let default_network = "BTC";
-
+let default_network = "TON";
 
 
 let wallet_address = {
+    "备注1": "地址1",
+    "备注2": "地址2",
+    "备注3": "地址3"
 
-    "ggg_ok_A01_01": "0xA6cBb1e75d42b3abAE7c419E5ce5ceB2B0b2CEE7"
-    ,"ggg_ok_A01_02": "0x3220a03b9fc4C74Ca42494D1552d0844025f5EDb"
-    ,"ggg_ok_A01_03": "0x54458887d8ec8bF4780D025c863B8d5422106811"
-    ,"ggg_ok_A01_04": "0xA54967B49679AD2332368bb28E65215400E9103d"
-    ,"ggg_ok_A01_05": "0xb3Ae5c4943170Fd5159d5eA13B6C52c6E4a0831e"
-    ,"ggg_ok_A01_06": "0xf9BB33c43D852206728Db4EEf0c1D708aB48Ab49"
 
 };
 
@@ -54,7 +53,7 @@ let one_group_count = 50;
 // 以下代码不要修改
 
 // 每次填充间隔时间
-let g_interval_time = 3000;
+let g_interval_time = 1000;
 
 var wallet_address_keys = Object.keys(wallet_address);
 let wallet_count = wallet_address_keys.length;
@@ -534,16 +533,16 @@ function select_values(default_coin){
 
 
     // 填上地址、备注
-    if(index < add_count){
-      start_sleep_time +=  ( g_interval_time / 2);    
-
-      DepositAddressBook_add_click(start_sleep_time);
+    if(operation_mode == 1){ 
+      if(index < add_count){
+        start_sleep_time +=  ( g_interval_time / 2);    
+        DepositAddressBook_add_click(start_sleep_time);
+      }
     }
 
 
-
     start_sleep_time +=  g_interval_time;    
-    select_coin(index, default_coin, start_sleep_time);
+    // select_coin(index, default_coin, start_sleep_time);
 
 
     // 填上地址、备注
@@ -551,15 +550,18 @@ function select_values(default_coin){
     remark_input(index, start_sleep_time);
 
 
-
-    start_sleep_time +=    g_interval_time;    
-    select_network(index, default_network,start_sleep_time)
+    if(operation_mode == 1){ 
+      start_sleep_time +=    g_interval_time;    
+      select_network(index, default_network,start_sleep_time)
+    }
 
     start_sleep_time += g_interval_time
     address_input(index , start_sleep_time);
 
 
-    // select_address_source(index,default_address_source, start_sleep_time);
+    if(operation_mode == 1){ 
+      select_address_source(index,default_address_source, start_sleep_time);
+    }
 
 
     console.log(wallet_address_keys[index+group_start_index]);
