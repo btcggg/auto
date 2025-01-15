@@ -32,15 +32,13 @@ let curr_group  =  1;
 let default_coin = "通用地址";
 
 // BTC,BSC,ETH,ARBITRUM,BASE,MANTA,OPTIMISM,ZKSYNCERA
-let default_network = "TON";
+let default_network = "BSC";
 
 
 let wallet_address = {
     "备注1": "地址1",
     "备注2": "地址2",
-    "备注3": "地址3"
-
-
+    "备注3": "地址3"  
 };
 
 

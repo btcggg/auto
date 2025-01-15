@@ -30,7 +30,6 @@ let wallet_address = {
     "备注1": "地址1",
     "备注2": "地址2",
     "备注3": "地址3"
-
   };
 
 
@@ -64,6 +63,16 @@ add_max = add_count;
 
 
 
+function comm_input_value(elmObj,value) {
+
+    elmObj.focus();
+    //模拟粘贴操作
+    elmObj.setSelectionRange(0,elmObj.value.length)
+    document.execCommand('delete', null, false);
+    document.execCommand('inserttext', false, value);
+    console.log("input value:" + value)
+
+}
 function DepositAddressBook_add() {
 
 
@@ -73,7 +82,11 @@ function DepositAddressBook_add() {
 
   }
   add_count--;  
-  document.querySelector("#pane-addAddress > div > div.flex.w-full.mt-6.justify-between.items-center > div:nth-child(1) > div").click();
+  // WithdrawBatchAddChainAddressAddRow
+
+  const element = document.querySelector('[data-testid="WithdrawBatchAddChainAddressAddRow"]');
+
+  element.click();
 
   console.log(add_count);
 }
@@ -90,22 +103,20 @@ console.log("tmp_sleep_time:"+tmp_sleep_time);
 function input_values(){ 
 
   console.log("start input_values");
-  chain_table_inputs = document.querySelectorAll("div#pane-addAddress >  div > div.w-full >div.gap-x-4");
 
-  for(var index=0; index< chain_table_inputs.length; index++){
-
-
-    address_input = chain_table_inputs[index].children[5].querySelector("div >input")
-    remark_input = chain_table_inputs[index].children[7].querySelector("div >input")
+  const address_inputs = document.querySelectorAll('[data-testid="WithdrawBatchAddChainAddressInput"]');
+  const remark_inputs = document.querySelectorAll('[data-testid="WithdrawBatchAddChainAddressRemarksInput"]');
 
 
-    remark_input.value = wallet_address_keys[index+group_start_index]; 
-    remark_input.dispatchEvent(new Event('input'));
-    // remark_input.click()
+  for(var index=0; index< address_inputs.length; index++){
 
-    address_input.value = wallet_address[wallet_address_keys[index+group_start_index]];
-    address_input.dispatchEvent(new Event('input'));
-    // address_input.click()
+    address_input = address_inputs[index]
+    remark_input = remark_inputs[index]
+
+
+
+    comm_input_value(remark_input,wallet_address_keys[index+group_start_index])
+    comm_input_value(address_input,wallet_address[wallet_address_keys[index+group_start_index]])
 
     console.log(wallet_address_keys[index+group_start_index]);
   }

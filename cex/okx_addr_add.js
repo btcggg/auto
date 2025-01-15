@@ -31,7 +31,9 @@ let curr_group  =  1;
 // 填写普通表单:normal 或包含memo内容的表单:memo
 let g_form_type  =  "normal";  // normal , memo
 
-let default_network = "Bitcoin";
+// 指定提币网络, 如果不需要就填 false
+// let default_network = "Bitcoin";
+let default_network = false;
 
 
 // 以下备注、地址修改成自己要添加的钱包地址信息, "地址名称" : "地址"
@@ -39,8 +41,6 @@ let wallet_address = {
     "备注1": "地址1",
     "备注2": "地址2",
     "备注3": "地址3"
-
-
 
   };
 
@@ -184,7 +184,9 @@ function input_values(){
       start_sleep_time +=    g_interval_time;    
 
   // network_select = chain_table_inputs.querySelector("tr:nth-child("+index+") > td:nth-child(4) > div > div > div > div > div > div.balance_okui-select-value-box ");
-  select_network(row_index, default_network,start_sleep_time);
+  if(default_network){
+    select_network(row_index, default_network,start_sleep_time);
+  }
 
 //*[@id="root"]/div/div/div[2]/div/form/div[1]/div/div/div/div[2]/table/tbody/tr
 //*[@id="root"]/div/div/div[2]/div/form/div[1]/div/div/div/div[2]/table/tbody/tr[2]/td[5]/div/div/div/div/div/div/input[2]
@@ -235,7 +237,7 @@ function input_values(){
   }
 
 
-  start_sleep_time += 5
+  start_sleep_time += 3
 
   setTimeout(function(){
     alert("大佬, 都准备好了,请确认后点保存下筷. \n by @gggxin");

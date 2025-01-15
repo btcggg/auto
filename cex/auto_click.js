@@ -1,6 +1,6 @@
 /*
 交易所自动点击生成充值地址
-支持 okx 、bitget 、 bybit
+支持 okx 、bitget 、 bybit、binance
 
 使用方法: 
 1. 进入 充值地址管理界面
@@ -9,7 +9,7 @@ bitget: https://www.bitget.com/zh-CN/asset/rechargeAddress?title=BTC-BTC&coinId=
 okx: https://www.okx.com/zh-hans/balance/recharge-address/eth/2-2
 bybit: https://www.bybit.com/user/assets/deposit/chain-address?c=ZK&a=ZKV2
 gate: https://www.gate.io/zh/myaccount/deposit/USDT ,要先打开充值地址列表
-
+binance: https://www.binance.com/zh-CN/my/wallet/account/main/deposit/address?coin=USDT&network=BSC
 2. 打开开发者⼯具, 复制该文件所有代码, 在chome 控制台里运行
 
 3. 结束后会有弹窗提示
