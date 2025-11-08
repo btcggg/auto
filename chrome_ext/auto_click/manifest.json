@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Auto Session Keeper-ggg",
+  "description": "Ensures the Midnight wizard session stays active by automatically clicking Start session when needed.",
+  "version": "1.0.4",
+  "permissions": [],
+  "host_permissions": [
+    "https://sm.midnight.gd/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://sm.midnight.gd/wizard/mine*"
+      ],
+      "js": [
+        "src/config.js",
+        "src/logger.js",
+        "src/dom.js",
+        "src/panel.js",
+        "src/sessionController.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

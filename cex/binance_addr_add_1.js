@@ -25,24 +25,32 @@ https://csvjson.com/csv2json
 // 运行方式 1: 自动填币种、转账网络  2: 手式先复制好币种、转账网络、
 let operation_mode = 2;
 
-// 50个钱包为1组,添加第几组, 比如添加好第2组,就成2
+// 50个钱包为1组,添加第几组, 比如添加好第2组,就改成2
 let curr_group  =  1;
 
 // 通用地址,ETH,BTC 
 let default_coin = "通用地址";
 
 // BTC,BSC,ETH,ARBITRUM,BASE,MANTA,OPTIMISM,ZKSYNCERA
-let default_network = "BSC";
+let default_network = "SUI";
 
+/*
+ggg_ok_A01_12
+ggg_ok_A01_39
+ggg_ok_A01_40
+ggg_ok_A01_52
+ggg_ok_A01_92
+ */
 
 let wallet_address = {
     "备注1": "地址1",
     "备注2": "地址2",
-    "备注3": "地址3"  
+    "备注3": "地址3"
+
 };
 
 
-//  一次最多添加几个地址,
+//  一次最多添加几个地址, 70
 let one_group_count = 50;
 
 

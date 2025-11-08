@@ -42,6 +42,7 @@ let wallet_address = {
     "备注2": "地址2",
     "备注3": "地址3"
 
+
   };
 
 // okx 每次只能加50个地址
@@ -77,7 +78,7 @@ add_max = add_count;
 function DepositAddressBook_add() {
 
   // 继续添加地址
-  document.querySelector("#root > div > div > div.balance-bottom > div > form > button").click()
+  document.querySelector("#root > div > div > div:nth-child(2) > div > form > button").click()
   add_max--;
   if (add_max === 0) {
     clearInterval(intervalId);
@@ -134,7 +135,7 @@ function input_values(){
 
   // chain_table_inputs = document.querySelector("#scroll-box > div > div > form > div:nth-child(6) > div > div > div > div");
   // chain_table_inputs = document.querySelector("#root > div > div > div.balance-bottom > div > form > div.addressListWrap > div > div > div > div.balance_okui-table-content > table > tbody ");
-  chain_table_inputs = document.querySelector('#root > div > div > div.balance-bottom > div > form > div.addressListWrap > div > div > div > div.balance_okui-table-content > table > tbody ');
+  chain_table_inputs = document.querySelector("#root > div > div > div:nth-child(2) > div > form > div.addressListWrap > div > div > div > div.balance_okui-table-content > table > tbody");
 
 
   // chain_table_inputs = document.querySelector("#scroll-box > .okui-dialog-container > div >form.okui-form >  div .withdraw-book-list")
@@ -198,7 +199,9 @@ function input_values(){
 // #root > div > div > div.balance-bottom > div > form > div.addressListWrap > div > div > div > div.balance_okui-table-content > table > tbody > tr:nth-child(3) > td:nth-child(5) > div > div > div > div > div > div > input.balance_okui-input-input
 // #root > div > div > div.balance-bottom > div > form > div.addressListWrap > div > div > div > div.balance_okui-table-content > table > tbody > tr:nth-child(2) > td:nth-child(5) > div > div > div.balance_okui-form-item-control-input > div > div > div.balance_okui-input-box > input.balance_okui-input-input  
 // #root > div > div > div.balance-bottom > div > form > div.addressListWrap > div > div > div > div.balance_okui-table-content > table > tbody > tr:nth-child(3) > td:nth-child(5) > div > div > div > div > div > div > input.balance_okui-input-input
-    address_input = chain_table_inputs.querySelector("tr:nth-child("+row_index+") > td:nth-child(5) > div > div > div > div > div > div > input.balance_okui-input-input");
+    address_input = chain_table_inputs.querySelector("tr:nth-child("+row_index+") > td:nth-child(3) > div > div > div > div > div > div > input.balance_okui-input-input");
+
+
 
     // address_input = chain_table_inputs.querySelector("div:nth-child("+address_index+") > div.balance_okui-form-item-control > div > div > div > div > input.balance_okui-input-input");
     // address_input = chain_table_inputs.querySelector("div:nth-child("+address_index+") > div.okui-form-item-control  input.okui-input-input");
@@ -207,9 +210,9 @@ function input_values(){
 
 // document.querySelector("#root > div > div > div.balance-bottom > div > form > div.addressListWrap > div > div > div > div.balance_okui-table-content > table > tbody > tr:nth-child(2) > td:nth-child(3) > div > div > div > div > div > div > input.balance_okui-input-input")
 
-    remark_input = chain_table_inputs.querySelector("tr:nth-child("+row_index+") > td:nth-child(7) > div > div > div > div > div > div > input.balance_okui-input-input");
-    // remark_input = chain_table_inputs.querySelector("div:nth-child("+(remark_index)+") > div.balance_okui-form-item-control > div > div > div > div > input.balance_okui-input-input");
-    // remark_input = chain_table_inputs.querySelector("div:nth-child("+(remark_index)+") > div.okui-form-item-control > div > div > div > div > input.okui-input-input");
+    remark_input = chain_table_inputs.querySelector("tr:nth-child("+row_index+") > td:nth-child(5) > div > div > div > div > div > div > input.balance_okui-input-input");
+
+
 
     if ( !remark_input){
       remark_input = chain_table_inputs.querySelector("div:nth-child("+row_index+") > div.okui-form-item-control  input.okui-input-input");
@@ -253,7 +256,11 @@ function getNetworksInputElm(row_index) {
 
   // let tmp_elm = getRowElms()[row_index-1];
 
-    network_select = chain_table_inputs.querySelector("tr:nth-child("+row_index+") > td:nth-child(4) > div > div > div > div > div > div.balance_okui-select-value-box ");
+    network_select = chain_table_inputs.querySelector("tr:nth-child("+row_index+") > td:nth-child(2) > div > div > div > div > div > div.balance_okui-select-value-box ");
+
+
+
+
 
     return network_select
   // return  tmp_elm.querySelector("div:nth-child(4) > div > div > div > div  ");
@@ -300,7 +307,7 @@ function select_network(row_index, input_value,start_sleep_time=0) {
 
   setTimeout(function(){
 
-    var options = document.querySelectorAll("#root > div > div > div.balance-bottom > div > form > div.addressListWrap > div > div > div > div.balance_okui-table-content > table > tbody > tr:nth-child("+row_index+") > td:nth-child(4) > div > div > div > div > div > div.balance_okui.balance_okui-popup.select-popup-reference > div > div > div > div > div > div.balance_okui-select-item-container.balance_okui-select-item-container-real > div")
+    var options = chain_table_inputs.querySelectorAll("tr:nth-child("+row_index+") >  td:nth-child(2) > div > div > div > div > div.balance_okui.balance_okui-select-var.balance_okui-select.Network_subCurrencyId__GA-St > div.balance_okui.balance_okui-popup-var.balance_okui-popup.select-popup-reference > div > div > div > div > div > div.balance_okui-select-item-container.balance_okui-select-item-container-real > div:nth-child(1) > div")
     // 遍历所有元素,找到文本内容为"BSC"的元素
     for (var i = 0; i < options.length; i++) {
       console.log(options[i].innerText)

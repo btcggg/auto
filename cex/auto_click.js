@@ -13,6 +13,7 @@ binance: https://www.binance.com/zh-CN/my/wallet/account/main/deposit/address?co
 2. 打开开发者⼯具, 复制该文件所有代码, 在chome 控制台里运行
 
 3. 结束后会有弹窗提示
+
 */
 
 hostname_split = location.hostname.split(".")
@@ -24,14 +25,15 @@ let add_count = 0
 
 let add_config = {
   "okx" : {
-    "click_selector":"#root > div > div > div.balance-bottom > div > div.DepositAddressBookContent_title__9WMaM > button"
+    "click_selector":"#root > div > div > div.balance-bottom > div > h2 > div:nth-child(2) > button"
     ,"add_max": 20
     ,"sleep_time": 2000
   }
+
   ,"bitget" : {
-    "click_selector":"#__layout > div > div.main-box.lay-box.clearfix > div > div > div > div:nth-child(2) > div.flex.justify-between.items-center > div > button.bit-button.bit-button--main.bit-button--medium.is-round"
+    "click_selector":"#root > div > div.w-\[1200px\].mx-auto.mt-\[24px\].mb-\[60px\].air\:w-full.air\:px-\[32px\].pad\:w-full.pad\:px-\[32px\].mobile\:w-full.mobile\:px-\[16px\] > div:nth-child(1) > div.flex.justify-between.items-center.h-\[40px\].text-\[20px\].air\:text-\[20px\].pad\:text-\[20px\].mobile\:text-\[20px\].font-semibold.mt-8 > div.mobile\:hidden > button.bit-btn.css-boouba.bit-btn-round.bit-btn-main"
     ,"add_max": 50
-    ,"sleep_time": 2500
+    ,"sleep_time": 3000
   }
   ,"bybit" : {
     "click_selector":"#root > div > div._coin_chain_address_1r3hz_1 > div._coin_chain_address_main_1r3hz_4 > div._coin_chain_address_top_1r3hz_10 > button"
@@ -74,7 +76,7 @@ function click_it() {
   add_count++;
   if (add_count > add_count_max) {
     clearInterval(intervalId);
-    alert("添加结束")
+    alert("添加结束 \n by @gggxin")
   }
   console.log(add_count);
 }
