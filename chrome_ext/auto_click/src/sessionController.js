@@ -130,6 +130,36 @@
     return fallback;
   };
 
+  const isButtonInteractable = button => {
+    if (!button) {
+      return false;
+    }
+    if (button.disabled) {
+      return false;
+    }
+    if (button.getAttribute("disabled") !== null) {
+      return false;
+    }
+    const ariaDisabled = (button.getAttribute("aria-disabled") || "").trim();
+    if (ariaDisabled && ariaDisabled !== "false") {
+      return false;
+    }
+    const classList = button.classList ? Array.from(button.classList) : [];
+    const disabledClassHints = ["disabled", "cursor-not-allowed", "opacity-50"];
+    if (classList.some(className => disabledClassHints.includes(className))) {
+      return false;
+    }
+    try {
+      const computed = window.getComputedStyle(button);
+      if (computed?.pointerEvents === "none") {
+        return false;
+      }
+    } catch (error) {
+      logger.warn("Failed to inspect button styles", error);
+    }
+    return true;
+  };
+
   const clearRapidRetry = () => {
     window.clearTimeout(state.rapidRetryTimeoutId);
     state.rapidRetryTimeoutId = null;
@@ -205,6 +235,14 @@
 
     if (hasLabel(label, activeSite.expectations.startLabel)) {
       state.hasConfirmedSession = false;
+      if (!isButtonInteractable(button)) {
+        logger.warn(
+          "Start session button found but it is disabled / non-interactable. Reloading page."
+        );
+        updateStatus("Button disabled, refreshing page to retry");
+        window.location.replace(activeSite.url);
+        return;
+      }
       triggerClick(button);
       return;
     }
