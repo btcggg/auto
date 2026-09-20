@@ -28,12 +28,12 @@ tools/miwifi/
   "targets": [
     {
       "name": "孩子手机",
-      "mac": "DE:54:F7:CF:5D:F1",
+      "mac": "AA:BB:CC:DD:EE:F1",
       "enabled": true
     },
     {
       "name": "平板电脑",
-      "mac": "7E:AC:A5:13:F9:FC",
+      "mac": "AA:BB:CC:DD:EE:F2",
       "enabled": false
     }
   ],
