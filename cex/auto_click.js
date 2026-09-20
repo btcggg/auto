@@ -31,7 +31,7 @@ let add_config = {
   }
 
   ,"bitget" : {
-    "click_selector":"#root > div > div.w-\[1200px\].mx-auto.mt-\[24px\].mb-\[60px\].air\:w-full.air\:px-\[32px\].pad\:w-full.pad\:px-\[32px\].mobile\:w-full.mobile\:px-\[16px\] > div:nth-child(1) > div.flex.justify-between.items-center.h-\[40px\].text-\[20px\].air\:text-\[20px\].pad\:text-\[20px\].mobile\:text-\[20px\].font-semibold.mt-8 > div.mobile\:hidden > button.bit-btn.css-boouba.bit-btn-round.bit-btn-main"
+    "click_selector":"#root > div > div.w-\\[1200px\\].mx-auto.mt-\\[24px\\].mb-\\[60px\\].air\\:w-full.air\\:px-\\[32px\\].pad\\:w-full.pad\\:px-\\[32px\\].mobile\\:w-full.mobile\\:px-\\[16px\\] > div:nth-child(1) > div.flex.justify-between.items-center.h-\\[40px\\].text-\\[20px\\].air\\:text-\\[20px\\].pad\\:text-\\[20px\\].mobile\\:text-\\[20px\\].font-semibold.mt-8 > div.mobile\\:hidden > button.bit-btn.css-1ooxf3z.bit-btn-round.bit-btn-main"
     ,"add_max": 50
     ,"sleep_time": 3000
   }

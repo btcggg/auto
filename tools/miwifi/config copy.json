@@ -1,0 +1,23 @@
+{
+  "routerIp": "192.168.31.1",
+  "password": "xxxxx",
+  "targets": [
+    {
+      "name": "iPhone1",
+      "mac": "AA:BB:CC:DD:EE:F1",
+      "enabled": false
+    },
+    {
+      "name": "iPhone2",
+      "mac": "AA:BB:CC:DD:EE:F2",
+      "enabled": true,
+      "blockTime": "21:05",
+      "unblockTime": "06:30"
+    }
+  ],
+  "schedule": {
+    "enabled": true,
+    "blockTime": "22:30",
+    "unblockTime": "06:30"
+  }
+}
