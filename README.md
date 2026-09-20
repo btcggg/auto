@@ -14,6 +14,8 @@
 - allowlist_check.py 空投中奖查询名单脚本
 - [链上转币脚本、bitlight脚本、推特相关等脚本](https://drive.google.com/drive/folders/1KIk_RcISBpUschAuBvsfy3rbrpbMneYI)  
 
+### [chrome_ext chrome 扩展插件]
+- auto_click 目前实现了midnight自动挖矿监控功能
 
 ### 其他脚本
 
